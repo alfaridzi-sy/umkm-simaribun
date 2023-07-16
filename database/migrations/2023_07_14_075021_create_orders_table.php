@@ -17,11 +17,16 @@ class CreateOrdersTable extends Migration
             $table->id('order_id');
             $table->string('order_code');
             $table->date('order_date');
-            $table->string('price_amount');
+            $table->string('price_amount')->nullable();
             $table->string('order_status');
             $table->string('customer_name');
             $table->string('customer_phone');
             $table->string('shipping_address');
+            $table->string('subdistrict');
+            $table->string('district');
+            $table->string('city');
+            $table->string('province');
+            $table->string('postal_code');
             $table->timestamps();
         });
     }

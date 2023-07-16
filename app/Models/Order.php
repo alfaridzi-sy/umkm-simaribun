@@ -11,11 +11,11 @@ class Order extends Model
 
     protected $table        = 'orders';
     protected $primaryKey   = 'order_id';
-    protected $fillable     = ['order_code', 'order_date', 'price_amount', 'order_status', 'customer_name', 'customer_phone', 'shipping_address'];
+    protected $fillable     = ['order_code', 'order_date', 'price_amount', 'order_status', 'customer_name', 'customer_phone', 'shipping_address', 'subdistrict', 'district', 'city', 'province', 'postal_code'];
 
     public function orderDetails()
     {
-        return $this->hasMany('App\Models\OrderDetail');
+        return $this->hasMany('App\Models\OrderDetail', 'order_id');
     }
 
     public function payment()

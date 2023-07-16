@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\APIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('product')->group(function() {
+    Route::get('/product-list', [APIController::class, 'getProductList']);
+    Route::post('/product-detail', [APIController::class, 'getProductDetail']);
+});
+
+Route::prefix('order')->group(function() {
+    Route::post('/place-order', [APIController::class, 'placeOrder']);
+    Route::post('/order-history', [APIController::class, 'orderHistory']);
+    Route::post('/active-order', [APIController::class, 'activeOrder']);
+    Route::post('/order-detail', [APIController::class, 'orderDetail']);
+    Route::post('/change-status', [APIController::class, 'changeStatus']);
 });
