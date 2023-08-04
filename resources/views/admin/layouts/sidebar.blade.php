@@ -64,12 +64,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/category">
+                    <a class="nav-link" href="#">
                         <i class="fas fa-chart-pie text-warning"></i> Data Kategori
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/product">
+                    <a class="nav-link" href="#">
                         <i class="fas fa-list-alt text-success"></i> Data Produk
                     </a>
                 </li>
@@ -77,7 +77,7 @@
                 <div class="dropdown-divider"></div>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/order">
+                    <a class="nav-link" href="#">
                         <i class="fas fa-shopping-bag text-info"></i> Data Pesanan
                     </a>
                 </li>
