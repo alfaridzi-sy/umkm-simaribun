@@ -70,7 +70,7 @@ UMKM  | UMKM2M Kecamatan Siantar Marimbun
                 <div class="form-group row mb-0">
                     <div class="col-md-12 offset-md-12 text-center">
                         <button type="submit" class="btn btn-warning" onclick="return confirm('Apakah Data Sudah Benar ?')">
-                            {{ __('Edit') }}
+                            {{ __('Update') }}
                         </button>
                         <button type="reset" class="btn btn-light">
                             {{ __('Reset') }}
