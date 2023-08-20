@@ -40,23 +40,12 @@ class UserController extends Controller
         User::create([
             'name'      => $request->name,
             'username'  => $request->username,
-            'password'  => Hash::make($request->username.'123'),
+            'password'  => Hash::make('goblok'),
             'address'   => $request->address,
             'role_id'   => 2
         ]);
 
         return redirect('user');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
     }
 
     /**
@@ -94,6 +83,15 @@ class UserController extends Controller
     public function destroy($user_id)
     {
         User::destroy($user_id);
+        return redirect('user');
+    }
+
+    public function resetPassword($user_id)
+    {
+        $user = User::find($user_id);
+        $user->update([
+            'password'  => Hash::make('123')
+        ]);
         return redirect('user');
     }
 }
