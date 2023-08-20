@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Validator;
 
 class APIController extends Controller
 {
-    public function getProductList(){
-        $products = Product::orderBy('created_at', 'asc')->get();
+    public function getProductList() {
+        $products = Product::with(['user', 'category', 'images'])
+                        ->orderBy('created_at', 'asc')
+                        ->get();
 
-        if(!$products){
+        if ($products->isEmpty()) {
             return response()->json([
                 'status' => 404,
                 'error' => 'No products found in the database',
@@ -25,26 +27,25 @@ class APIController extends Controller
         $data = [];
 
         foreach ($products as $product) {
-            $product_image = ProductImage::where('product_id', $product->product_id)->first();
+            $productImages = $product->images->take(3);
 
-            if(!$product_image){
-                return response()->json([
-                    'status'        => 404,
-                    'error'         => 'Product image not found',
-                    'product_id'    => $product->product_id
-                ]);
+            $productImageData = [];
+            foreach ($productImages as $productImage) {
+                $productImageData[] = [
+                    'image_path' => $productImage->image_path
+                ];
             }
 
             $data[] = [
-                'umkm_name'             => $product->user->name,
-                'product_id'            => $product->product_id,
-                'product_name'          => $product->product_name,
-                'product_description'   => $product->description,
-                'product_stock'         => $product->stock,
-                'product_price'         => $product->price,
-                'product_unit'          => $product->unit,
-                'product_image_path'    => $product_image->image_path,
-                'product_category'      => $product->category->category_name
+                'umkm_name' => $product->user->name,
+                'product_id' => $product->product_id,
+                'product_name' => $product->product_name,
+                'product_description' => $product->description,
+                'product_stock' => $product->stock,
+                'product_price' => $product->price,
+                'product_unit' => $product->unit,
+                'product_category' => $product->category->category_name,
+                'product_images' => $productImageData,
             ];
         }
 
@@ -54,6 +55,7 @@ class APIController extends Controller
             'data' => $data,
         ]);
     }
+
 
     public function getProductDetail(Request $request){
         $product = Product::find($request->product_id);
@@ -181,10 +183,6 @@ class APIController extends Controller
             'customer_name' => 'required|max:50',
             'customer_phone' => 'required|max:15',
             'shipping_address' => 'required',
-            'subdistrict' => 'required',
-            'district' => 'required',
-            'city' => 'required',
-            'province' => 'required',
             'postal_code' => 'required',
             'order_details' => 'required'
         ]);
@@ -204,10 +202,6 @@ class APIController extends Controller
         $customer_name      = $request->customer_name;
         $customer_phone     = $request->customer_phone;
         $shipping_address   = $request->shipping_address;
-        $subdistrict        = $request->subdistrict;
-        $district           = $request->district;
-        $city               = $request->city;
-        $province           = $request->province;
         $postal_code        = $request->postal_code;
 
         try{
@@ -218,10 +212,6 @@ class APIController extends Controller
                 'customer_name'     => $customer_name,
                 'customer_phone'    => $customer_phone,
                 'shipping_address'  => $shipping_address,
-                'subdistrict'       => $subdistrict,
-                'district'          => $district,
-                'city'              => $city,
-                'province'          => $province,
                 'postal_code'       => $postal_code
             ]);
 
@@ -272,10 +262,6 @@ class APIController extends Controller
                 'customer_name'     => $order->customer_name,
                 'customer_phone'    => $order->customer_phone,
                 'shipping_address'  => $order->shipping_address,
-                'subdistrict'       => $order->subdistrict,
-                'district'          => $order->district,
-                'city'              => $order->city,
-                'province'          => $order->province,
                 'postal_code'       => $order->postal_code
             ];
 
@@ -558,6 +544,67 @@ class APIController extends Controller
             'status' => 200,
             'error' => null,
             'data' => $data,
+        ], 200);
+    }
+
+    public function userOrder(Request $request){
+        $validator = Validator::make($request->all(), [
+            'customer_name' => 'required|max:50',
+            'customer_phone' => 'required|max:15',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 400);
+        }
+
+        $customer_name  = $request->customer_name;
+        $customer_phone = $request->customer_phone;
+        $data           = [];
+
+        $orders = Order::where('customer_name', $customer_name)->get();
+
+        if ($orders->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Order data not found for user with name'.' '.$customer_name,
+            ], 404);
+        }
+
+        $ordersFiltered = $orders->where('customer_phone', $customer_phone);
+
+        if ($ordersFiltered->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Order data not found for user with name '.$customer_name.' and phone number '.$customer_phone,
+            ], 404);
+        }
+
+        $ordersFiltered = $ordersFiltered->sortBy('order_status');
+
+        foreach($ordersFiltered as $order){
+            $item_amount = OrderDetail::where('order_id', $order->order_id)->sum('amount');
+            $price_amount = OrderDetail::where('order_id', $order->order_id)->sum('subtotal');
+
+            $order_detail   = OrderDetail::where('order_id', $order->order_id)->first();
+            $product_image  = ProductImage::where('product_id', $order_detail->product->product_id)->first();
+
+            $data[] = [
+                'order_id'          => $order->order_id,
+                'order_code'        => $order->order_code,
+                'product_image'     => $product_image->image_path,
+                'item_amount'       => $item_amount,
+                'price_amount'      => $price_amount,
+                'order_status'      => $order->order_status
+            ];
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'error' => null,
+            'data' => $data
         ], 200);
     }
 }
