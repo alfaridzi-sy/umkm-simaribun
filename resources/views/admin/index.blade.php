@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    Dashboard | UMKM Be Digital Kecamatan Siantar Marimbun
+    Dashboard | UMKM2M Kecamatan Siantar Marimbun
 @endsection
 
 @section('page_header')
@@ -73,7 +73,7 @@
         <div class="card-header border-0">
             <div class="row align-items-center">
                 <div class="col">
-                    <h2 class="mb-0 text-center">Selamat Datang di Halaman Admin UMKM Be Digital Kecamatan Siantar Marimbun</h2>
+                    <h2 class="mb-0 text-center">Selamat Datang di Halaman Admin UMKM2M Kecamatan Siantar Marimbun</h2>
                 </div>
             </div>
         </div>
