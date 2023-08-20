@@ -587,6 +587,7 @@ class APIController extends Controller
         foreach($ordersFiltered as $order){
             $item_amount = OrderDetail::where('order_id', $order->order_id)->sum('amount');
             $price_amount = OrderDetail::where('order_id', $order->order_id)->sum('subtotal');
+            $base_price = OrderDetail::where('order_id', $order->order_id)->sum('price');
 
             $order_detail   = OrderDetail::where('order_id', $order->order_id)->first();
             $product_image  = ProductImage::where('product_id', $order_detail->product->product_id)->first();
@@ -597,6 +598,7 @@ class APIController extends Controller
                 'product_image'     => $product_image->image_path,
                 'item_amount'       => $item_amount,
                 'price_amount'      => $price_amount,
+                'base_price'        => $base_price,
                 'order_status'      => $order->order_status
             ];
         }
