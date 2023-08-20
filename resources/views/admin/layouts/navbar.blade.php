@@ -1,7 +1,7 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
         <!-- Brand -->
-        <h1><a class="h2 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#">UMKM Be Digital Kecamatan Siantar Marimbun</a></h1>
+        <h1><a class="h2 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="#">UMKM2M Kecamatan Siantar Marimbun</a></h1>
         <!-- User -->
         <ul class="navbar-nav align-items-center d-none d-md-flex">
             <li class="nav-item dropdown">

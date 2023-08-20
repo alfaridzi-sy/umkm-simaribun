@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-UMKM  | UMKM Be Digital Kecamatan Siantar Marimbun
+UMKM  | UMKM2M Kecamatan Siantar Marimbun
 @endsection
 
 @section('breadcrumb')

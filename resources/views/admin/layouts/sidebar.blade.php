@@ -39,8 +39,8 @@
             <div class="navbar-collapse-header d-md-none">
                 <div class="row">
                     <div class="col-8 collapse-brand">
-                        {{-- <h1><a class="h2 mb-0 text-dark text-uppercase d-none d-lg-inline-block" href="#">UMKM Be Digital Kecamatan Siantar Marimbun</a></h1> --}}
-                        <h2 class="h2 text-dark">UMKM Be Digital Kecamatan Siantar Marimbun</h2>
+                        {{-- <h1><a class="h2 mb-0 text-dark text-uppercase d-none d-lg-inline-block" href="#">UMKM2M Kecamatan Siantar Marimbun</a></h1> --}}
+                        <h2 class="h2 text-dark">UMKM2M Kecamatan Siantar Marimbun</h2>
                     </div>
                     <div class="col-4 collapse-close">
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
@@ -53,7 +53,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item  class=" active>
-                    <a class=" nav-link active " href="/adminIndex"> <i class="ni ni-tv-2 text-primary"></i> Dashboard</a>
+                    <a class=" nav-link" href="/adminIndex"> <i class="ni ni-tv-2 text-primary"></i> Dashboard</a>
                 </li>
 
                 <div class="dropdown-divider"></div>

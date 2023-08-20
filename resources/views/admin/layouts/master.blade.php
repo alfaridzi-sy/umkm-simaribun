@@ -38,6 +38,21 @@
     <!-- Scripts -->
     @include('admin.layouts.scripts')
     @stack('scripts')
+    <script>
+        // Ambil URL saat ini tanpa domain
+        var currentUrl = window.location.pathname;
+
+        // Ambil semua elemen <a> dalam <li> dengan kelas .nav-link
+        var navLinks = document.querySelectorAll('.nav-item .nav-link');
+
+        // Loop melalui setiap link dan cek apakah URL-nya sama dengan URL saat ini
+        navLinks.forEach(function(navLink) {
+            if (navLink.getAttribute('href') === currentUrl) {
+                // Tambahkan kelas 'active' jika URL sesuai
+                navLink.classList.add('active');
+            }
+        });
+    </script>
 </body>
 
 </html>
