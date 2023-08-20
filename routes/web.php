@@ -30,4 +30,5 @@ Route::get('adminIndex', [DashboardController::class, 'index'])->name('admin.ind
 
 //UMKM
 Route::resource('user',UserController::class);
-Route::get('/user/destroy/{user_id}','App\Http\Controllers\UserController@destroy');
+Route::get('/user/destroy/{user_id}','App\Http\Controllers\UserController@destroy')->name('user.destroy');
+Route::get('/user/resetPassword/{user_id}','App\Http\Controllers\UserController@resetPassword')->name('user.resetPassword');

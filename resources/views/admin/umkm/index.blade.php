@@ -53,7 +53,8 @@
                                 class="btn btn-sm btn-warning">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a  data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="{!! url('user/destroy') !!}/{{$u->user_id}}" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a  data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="{!! url('user/destroy') !!}/{{$u->user_id}}" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a  data-toggle="tooltip" data-placement="bottom" title="Reset Password" href="{!! url('user/resetPassword') !!}/{{$u->user_id}}" onclick="return confirm ('Apakah anda yakin untuk melakukan reset password?')" class="btn btn-primary btn-sm"><i class="fa fa-key"></i></a>
                         </div>
                     </td>
                 </tr>
