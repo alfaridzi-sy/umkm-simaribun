@@ -26,4 +26,5 @@ Route::prefix('order')->group(function() {
     Route::post('/active-order', [APIController::class, 'activeOrder']);
     Route::post('/order-detail', [APIController::class, 'orderDetail']);
     Route::post('/change-status', [APIController::class, 'changeStatus']);
+    Route::post('/user-order', [APIController::class, 'userOrder']);
 });
