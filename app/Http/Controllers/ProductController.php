@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductImage;
 
 class ProductController extends Controller
 {
@@ -15,7 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::with(['images' => function ($query) {
+            $query->first(); // Mengambil 3 gambar terkait produk
+        }])->get();
+
+        return view('admin.product.index', ["products" => $products]);
     }
 
     /**
@@ -25,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.create');
     }
 
     /**
@@ -34,7 +38,7 @@ class ProductController extends Controller
      * @param  \App\Http\Requests\StoreProductRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -68,7 +72,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
         //
     }
