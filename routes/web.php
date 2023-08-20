@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::get('adminIndex', [DashboardController::class, 'index'])->name('admin.ind
 Route::resource('user',UserController::class);
 Route::get('/user/destroy/{user_id}','App\Http\Controllers\UserController@destroy')->name('user.destroy');
 Route::get('/user/resetPassword/{user_id}','App\Http\Controllers\UserController@resetPassword')->name('user.resetPassword');
+
+//Category
+Route::resource('category',CategoryController::class);
+Route::get('/category/destroy/{category_id}','App\Http\Controllers\CategoryController@destroy')->name('category.destroy');
