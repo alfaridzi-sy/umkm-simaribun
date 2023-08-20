@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    Kategori  | UMKM2M Kecamatan Siantar Marimbun
+    Kategori | UMKM2M Kecamatan Siantar Marimbun
 @endsection
 
 @section('breadcrumb')

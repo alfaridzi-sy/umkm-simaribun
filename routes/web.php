@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,7 @@ Route::get('/user/resetPassword/{user_id}','App\Http\Controllers\UserController@
 //Category
 Route::resource('category',CategoryController::class);
 Route::get('/category/destroy/{category_id}','App\Http\Controllers\CategoryController@destroy')->name('category.destroy');
+
+//Product
+Route::resource('product',ProductController::class);
+Route::get('/produt/destroy/{product_id}','App\Http\Controllers\ProductController@destroy')->name('product.destroy');

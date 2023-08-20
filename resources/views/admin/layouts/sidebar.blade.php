@@ -58,6 +58,7 @@
 
                 <div class="dropdown-divider"></div>
 
+                @if(auth()->user()->role_id != 2)
                 <li class="nav-item">
                     <a class="nav-link" href="/user">
                         <i class="fas fa-users text-yellow"></i> Data UMKM
@@ -68,11 +69,15 @@
                         <i class="fas fa-chart-pie text-warning"></i> Data Kategori
                     </a>
                 </li>
+                @endif
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/product">
                         <i class="fas fa-list-alt text-success"></i> Data Produk
                     </a>
                 </li>
+
+                @if(auth()->user()->role_id != 2)
 
                 <div class="dropdown-divider"></div>
 
@@ -89,6 +94,8 @@
                         <i class="fas fa-file-text text-dark"></i> Laporan Penjualan
                     </a>
                 </li>
+
+                @endif
             </ul>
         </div>
     </div>
