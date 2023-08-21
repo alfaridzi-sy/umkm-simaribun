@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,9 @@ Route::get('/category/destroy/{category_id}','App\Http\Controllers\CategoryContr
 
 //Product
 Route::resource('product',ProductController::class);
-Route::get('/produt/destroy/{product_id}','App\Http\Controllers\ProductController@destroy')->name('product.destroy');
+Route::get('/product/destroy/{product_id}','App\Http\Controllers\ProductController@destroy')->name('product.destroy');
+Route::get('/product/editImage/{product_id}','App\Http\Controllers\ProductController@editImage')->name('product.editImage');
+Route::get('/product/deleteImage/{product_image_id}','App\Http\Controllers\ProductController@deleteImage')->name('product.deleteImage');
+Route::post('/storeImage','App\Http\Controllers\ProductController@storeImage')->name('product.storeImage');
+
+

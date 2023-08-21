@@ -38,6 +38,7 @@
                     <th scope="col">Nama Produk</th>
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Jumlah Stok</th>
+                    <th scope="col">Satuan Produk</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Kategori</th>
                     <th scope="col">Nama UMKM</th>
@@ -49,25 +50,34 @@
                 <tr class="text-center">
                     <td scope="row">{{ $k + 1 }}</td>
                     <td scope="row">
-                        <img src="{{ asset('master/assets/img/fav.png') }}" width= "100px" >
+                        @if ($p->images->isNotEmpty())
+                            <img src="{{ asset('storage/' . $p->images->first()->image_path) }}" width="100px">
+                        @endif
                     </td>
                     <td scope="row">{{$p->product_name}}</td>
-                    <td scope="row"><?php echo substr($p->description, 0, 20) ?> ...</td>
-                    <td scope="row">{{$p->stock}} {{ $p->unit }}</td>
+                    <td scope="row">
+                        <?php echo strlen($p->description) > 20 ? substr($p->description, 0, 20) . " ..." : $p->description; ?>
+                    </td>
+
+                    <td scope="row">{{$p->stock}}</td>
+                    <td scope="row">{{ $p->unit }}</td>
                     <td scope="row">{{$p->price}}</td>
                     <td scope="row">{{$p->category->category_name}}</td>
                     <td scope="row">{{$p->user->name}}</td>
                     <td scope="row">
                         <div class="btn-group" role="group">
-                            <a href="{{route('product.edit',['product' => $p->product_id])}}" role="button"
-                                class="btn btn-sm btn-warning">
+                            <a href="{{route('product.show',['product' => $p->product_id])}}" role="button" class="btn btn-sm btn-info">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a href="{{route('product.edit',['product' => $p->product_id])}}" role="button" class="btn btn-sm btn-warning">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <a  data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="{!! url('product/destroy') !!}/{{$p->product_id}}" onclick="return confirm ('Apakah anda yakin untuk meghapus data ini?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                            <a  data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="{!! url('product/destroy') !!}/{{$p->product_id}}" onclick="return confirm ('Apakah anda yakin untuk menghapus data ini?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
                 </tr>
-                @endforeach
+            @endforeach
+
             </tbody>
         </table>
     </div>
