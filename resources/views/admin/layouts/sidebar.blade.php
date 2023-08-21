@@ -15,10 +15,10 @@
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
-                            <img alt="Image placeholder" src="{{ asset('master/assets/img/brand/favicon.png') }}">
+                            <img alt="Image placeholder" src="{{ asset('master/assets/img/user.png') }}">
                         </span>
                         <div class="media-body ml-2 d-none d-lg-block">
-                            <span class="mb-0 text-sm  font-weight-bold">Administrator</span>
+                            <span class="mb-0 text-sm  font-weight-bold"><?php echo auth()->user()->name ?></span>
                         </div>
                     </div>
                 </a>
