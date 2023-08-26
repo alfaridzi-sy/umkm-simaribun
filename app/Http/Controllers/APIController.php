@@ -599,7 +599,9 @@ class APIController extends Controller
                 'item_amount'       => $item_amount,
                 'price_amount'      => $price_amount,
                 'base_price'        => $base_price,
-                'order_status'      => $order->order_status
+                'order_status'      => $order->order_status,
+                'product_name'      => $order_detail->product->product_name,
+                'product_unit'      => $order_detail->product->unit,
             ];
         }
 
