@@ -38,7 +38,10 @@
                         <div class="card-header bg-transparent pb-3">
                             <div class="text-muted text-center mt-2 mb-3">
                                 <h1 class="text-dark"><strong>Sign in</strong></h1>
-                                <p class="text-lead text-dark">Selamat Datang di Sistem UMKM2M Kecamatan Siantar Marimbun</p>
+                                <p class="text-lead text-dark">
+                                    Selamat Datang di Sistem UMKM2M <br>
+                                    Kecamatan Siantar Marimbun
+                                </p>
                             </div>
                         </div>
                         <div class="card-body px-lg-5 py-lg-5">
