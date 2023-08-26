@@ -20,9 +20,7 @@ use App\Http\Controllers\OrderController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontEndController::class, 'index'])->name('customer.beranda');
 
 //Login
 Route::get('adminLogin', [LoginController::class, 'index'])->name('admin.login');
@@ -57,8 +55,9 @@ Route::middleware(['auth'])->group(function () {
 //Customer
 Route::prefix('customer')->group(function () {
     Route::get('/beranda', [FrontEndController::class, 'index'])->name('customer.beranda');
-    Route::get('/produk', [FrontEndController::class, 'product'])->name('customer.produk');
-    Route::get('/hubungi-kami', [FrontEndController::class, 'contact'])->name('customer.contact');
+    Route::get('/productList', [FrontEndController::class, 'productList'])->name('customer.productList');
+    Route::get('/contactList', [FrontEndController::class, 'contactList'])->name('customer.contactList');
+    Route::get('/about', [FrontEndController::class, 'about'])->name('customer.about');
     // Route::get('/{id}', [CustomerTypeController::class, 'detail']);
     // Route::post('/add', [CustomerTypeController::class, 'add']);
     // Route::put('/{id}', [CustomerTypeController::class, 'update']);

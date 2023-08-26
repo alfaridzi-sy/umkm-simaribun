@@ -13,4 +13,17 @@ class FrontEndController extends Controller
         $categories = Category::all();
         return view('customer.index', ["products" => $products, "categories" => $categories]);
     }
+
+    public function productList(){
+        $products = Product::all();
+        return view('customer.product', ["products" => $products]);
+    }
+
+    public function contactList(){
+        return view('customer.contact');
+    }
+
+    public function about(){
+        return view('customer.about');
+    }
 }
