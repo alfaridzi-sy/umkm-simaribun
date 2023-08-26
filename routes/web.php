@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 
@@ -53,4 +54,17 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('order', OrderController::class);
 });
 
+//Customer
+Route::prefix('customer')->group(function () {
+    Route::get('/beranda', [FrontEndController::class, 'index'])->name('customer.beranda');
+    Route::get('/produk', [FrontEndController::class, 'product'])->name('customer.produk');
+    Route::get('/hubungi-kami', [FrontEndController::class, 'contact'])->name('customer.contact');
+    // Route::get('/{id}', [CustomerTypeController::class, 'detail']);
+    // Route::post('/add', [CustomerTypeController::class, 'add']);
+    // Route::put('/{id}', [CustomerTypeController::class, 'update']);
+    // Route::delete('/{id}', [CustomerTypeController::class, 'delete']);
+    // Route::get('/home', function () {
+    //     return view('customer.index');
+    // });
+});
 
