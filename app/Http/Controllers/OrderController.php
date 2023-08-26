@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
+use App\Models\OrderDetail;
+Use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -15,28 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreOrderRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreOrderRequest $request)
-    {
-        //
+        $orders = Order::orderBy('order_status')->get();
+        return view('admin.order.index', ["orders" => $orders]);
     }
 
     /**
@@ -45,9 +25,10 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($order_id)
     {
-        //
+        $details  = OrderDetail::where('order_id', $order_id)->with('product.images')->get();
+        return view('admin.order.detail', ["details" => $details]);
     }
 
     /**
@@ -56,9 +37,10 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit($order_id)
     {
-        //
+        $order = Order::findOrFail($order_id);
+        return view('admin.order.status', ["orders" => $order]);
     }
 
     /**
@@ -68,19 +50,10 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOrderRequest $request, Order $order)
+    public function update(Request $request, $order_id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
+        $order = Order::findOrFail($order_id);
+        $order->update($request->all());
+        return redirect('order');
     }
 }

@@ -6,7 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +48,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/product/editImage/{product_id}','App\Http\Controllers\ProductController@editImage')->name('product.editImage');
     Route::get('/product/deleteImage/{product_image_id}','App\Http\Controllers\ProductController@deleteImage')->name('product.deleteImage');
     Route::post('/storeImage','App\Http\Controllers\ProductController@storeImage')->name('product.storeImage');
+
+    //Order
+    Route::resource('order', OrderController::class);
 });
 
 
