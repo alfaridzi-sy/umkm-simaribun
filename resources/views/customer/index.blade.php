@@ -37,7 +37,7 @@
                                     <a href="" class="text-uppercase custom_orange-btn mr-3">
                                     Beli Sekarang
                                     </a>
-                                    <a href="{{ route('customer.contact') }}" class="text-uppercase custom_dark-btn">
+                                    <a href="{{ route('customer.contactList') }}" class="text-uppercase custom_dark-btn">
                                     Hubungi Kami
                                     </a>
                                 </div>
@@ -80,7 +80,7 @@
                                         <a href="" class="text-uppercase custom_orange-btn mr-3">
                                         Beli Sekarang
                                         </a>
-                                        <a href="{{ route('customer.contact') }}" class="text-uppercase custom_dark-btn">
+                                        <a href="{{ route('customer.contactList') }}" class="text-uppercase custom_dark-btn">
                                         Hubungi Kami
                                         </a>
                                     </div>
@@ -170,12 +170,10 @@
     </section>
     <!-- end cluster section -->
 
-    <br>
     <hr style="width: 50%">
-    <br>
 
     <!-- product section -->
-    <section class="fruit_section">
+    <section class="fruit_section layout_padding">
         <div class="container">
 
 
@@ -184,37 +182,39 @@
                 Banyak produk menarik yang merupakan produk murni dari UMKM setempat di Kecamatan Siantar Marimbun
             </p>
             @foreach ($products as $product)
-                <div class="row layout_padding2">
-                    <div class="col-md-8">
-                        <div class="fruit_detail-box">
-                            <h3>{{ $product -> product_name }}</h3>
-                            <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;" disabled>Rp. <?php echo number_format($product -> price, 0, '.', '.') ?></button>
-                            <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;"disabled>{{ $product -> category -> category_name }}</button>
-                            <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;"disabled>{{ $product -> stock }} {{ $product -> unit }} Tersisa</button>
+            <div class="row layout_padding2">
+                <div class="col-md-8">
+                    <div class="fruit_detail-box">
+                        <h3>{{ $product->product_name }}</h3>
+                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;" disabled>Rp. <?php echo number_format($product->price, 0, '.', '.') ?></button>
+                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;" disabled>{{ $product->category->category_name }}</button>
+                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;" disabled>{{ $product->stock }} {{ $product->unit }} Tersisa</button>
 
-                            <p class="mt-4 mb-5">
-                                {{ $product -> description }}
-                            </p>
-                            <div>
-                                <a href="#" class="custom_dark-btn">
-                                    Beli Sekarang
-                                </a>
-                            </div>
+                        <div class="mt-4 mb-5">
+                            {!! nl2br(e($product->description)) !!}
                         </div>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
-                        <div class="fruit_img-box d-flex justify-content-center align-items-center">
-                            @if ($product->images->isNotEmpty())
-                                <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" width="250px">
-                            @endif
-                            <img src="https://sdmnk.umkmbedigital.com/public/storage/product/{{ $product -> foto }}" alt="" class="" width="250px" />
+                        <div>
+                            <a href="#" class="custom_dark-btn">
+                                Beli Sekarang
+                            </a>
                         </div>
                     </div>
                 </div>
+                {{-- <div class="col-md-4 d-flex justify-content-center align-items-center"> --}}
+                    <div class="col-md-4 fruit_img-box d-flex justify-content-center align-items-center">
+                        @if ($product->images->isNotEmpty())
+                            <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" width="250px">
+                        @endif
+                        <img src="https://sdmnk.umkmbedigital.com/public/storage/product/{{ $product->foto }}" alt="" class="" width="250px" />
+                    </div>
+                {{-- </div> --}}
+            </div>
             @endforeach
         </div>
     </section>
     <!-- end product section -->
+
+    <hr style="width: 50%">
 
     <!-- contact section -->
     <section class="contact_section layout_padding">

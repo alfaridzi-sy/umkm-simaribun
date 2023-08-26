@@ -19,13 +19,13 @@
                         <a class="nav-link" href="{{ route('customer.beranda') }}">Beranda <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('customer.produk') }}"> Produk</a>
+                        <a class="nav-link" href="{{ route('customer.productList') }}"> Produk</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href=""> Tentang </a>
+                        <a class="nav-link" href="{{ route('customer.about') }}"> Tentang </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="{{ route('customer.contact') }}">Hubungi Kami</a>
+                        <a class="nav-link" href="{{ route('customer.contactList') }}">Hubungi Kami</a>
                         </li>
                     </ul>
                 </div>

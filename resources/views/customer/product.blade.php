@@ -1,7 +1,7 @@
 @extends('customer.layouts.master')
 
 @section('page_title')
-    Produk | UMKM Be Digital Sidamanik
+    Produk | UMKM2M Kecamatan Siantar Marimbun
 @endsection
 
 @section('page_type')
@@ -19,25 +19,25 @@
             <div class="row layout_padding2">
                 <div class="col-md-8">
                     <div class="fruit_detail-box">
-                        <h3>{{ $product -> nama_produk }}</h3>
-                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;" disabled>Rp. <?php echo number_format($product -> harga, 0, '.', '.') ?></button>
-                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;"disabled>{{ $product -> category -> jenis_produk }}</button>
-                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;"disabled>{{ $product -> stok }} Tersisa</button>
-                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;"disabled>{{ $product -> cluster -> nama }}</button>
+                        <h3>{{ $product -> product_name }}</h3>
+                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;" disabled>Rp. <?php echo number_format($product -> price, 0, '.', '.') ?></button>
+                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;"disabled>{{ $product -> category -> category_name }}</button>
+                        <button type="button" class="btn btn-sm btn-secondary" style="border-radius: 12px;"disabled>{{ $product -> stock }} {{ $product -> unit }} Tersisa</button>
                         <p class="mt-4 mb-5">
-                            {{ $product -> deskripsi_produk }}
+                            {{ $product -> description }}
                         </p>
                         <div>
-                            <a href="#" class="custom_dark-btn">
+                            <a href="javascript:void(0)" class="custom_dark-btn">
                                 Beli Sekarang
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 d-flex justify-content-center align-items-center">
-                    <div class="fruit_img-box d-flex justify-content-center align-items-center">
-                        <img src="https://sdmnk.umkmbedigital.com/public/storage/product/{{ $product -> foto }}" alt="" class="" width="250px" />
-                    </div>
+                <div class="col-md-4 fruit_img-box d-flex justify-content-center align-items-center">
+                    @if ($product->images->isNotEmpty())
+                        <img src="{{ asset('storage/' . $product->images->first()->image_path) }}" width="250px">
+                    @endif
+                    <img src="https://sdmnk.umkmbedigital.com/public/storage/product/{{ $product->foto }}" alt="" class="" width="250px" />
                 </div>
             </div>
         @endforeach
