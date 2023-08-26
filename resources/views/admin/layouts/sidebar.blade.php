@@ -82,7 +82,7 @@
                 <div class="dropdown-divider"></div>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/order">
                         <i class="fas fa-shopping-bag text-info"></i> Data Pesanan
                     </a>
                 </li>
@@ -90,7 +90,7 @@
                 <div class="dropdown-divider"></div>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="javascript:void(0);">
                         <i class="fas fa-file-text text-dark"></i> Laporan Penjualan
                     </a>
                 </li>
