@@ -37,6 +37,9 @@
                     <th scope="col">Nama UMKM</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Username</th>
+                    <th scope="col">Telepon</th>
+                    <th scope="col">Nomor Rekening</th>
+                    <th scope="col">Jenis Bank</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -47,6 +50,9 @@
                     <td scope="row">{{$u->name}}</td>
                     <td scope="row">{{$u->address}}</td>
                     <td scope="row">{{$u->username}}</td>
+                    <td scope="row">{{$u->contact}}</td>
+                    <td scope="row">{{$u->account_number}}</td>
+                    <td scope="row">{{$u->account_bank}}</td>
                     <td scope="row">
                         <div class="btn-group" role="group">
                             <a href="{{route('user.edit',['user' => $u->user_id])}}" role="button"

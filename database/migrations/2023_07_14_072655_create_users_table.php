@@ -19,6 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('address');
+            $table->string('contact')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('account_bank')->nullable();
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('role_id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

@@ -38,6 +38,9 @@ class APIController extends Controller
 
             $data[] = [
                 'umkm_name' => $product->user->name,
+                'umkm_contact' => $product->user->contact,
+                'umkm_account_number' => $product->user->account_number,
+                'umkm_account_bank' => $product->user->account_bank,
                 'product_id' => $product->product_id,
                 'product_name' => $product->product_name,
                 'product_description' => $product->description,
@@ -307,18 +310,18 @@ class APIController extends Controller
 
         if ($orders->isEmpty()) {
             return response()->json([
-                'status' => 'error',
-                'message' => 'Order data not found for user with name'.' '.$customer_name,
-            ], 404);
+                'status' => 'success',
+                'message' => 'No Order data for user with name'.' '.$customer_name,
+            ], 200);
         }
 
         $ordersFiltered = $orders->where('customer_phone', $customer_phone);
 
         if ($ordersFiltered->isEmpty()) {
             return response()->json([
-                'status' => 'error',
-                'message' => 'Order data not found for user with name '.$customer_name.' and phone number '.$customer_phone,
-            ], 404);
+                'status' => 'success',
+                'message' => 'No Order data not for user with name '.$customer_name.' and phone number '.$customer_phone,
+            ], 200);
         }
 
         $ordersFiltered = $ordersFiltered->whereIn('order_status', ['4', '5']);

@@ -40,8 +40,11 @@ class UserController extends Controller
         User::create([
             'name'      => $request->name,
             'username'  => $request->username,
-            'password'  => Hash::make('goblok'),
+            'password'  => Hash::make('123'),
             'address'   => $request->address,
+            'contact'   => $request->contact,
+            'account_number'   => $request->account_number,
+            'account_bank'   => $request->account_bank,
             'role_id'   => 2
         ]);
 

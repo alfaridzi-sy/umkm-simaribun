@@ -22,10 +22,6 @@ class CreateOrdersTable extends Migration
             $table->string('customer_name');
             $table->string('customer_phone');
             $table->string('shipping_address');
-            $table->string('subdistrict');
-            $table->string('district');
-            $table->string('city');
-            $table->string('province');
             $table->string('postal_code');
             $table->timestamps();
         });
