@@ -219,7 +219,7 @@ class APIController extends Controller
                 'customer_phone'    => $customer_phone,
                 'shipping_address'  => $shipping_address,
                 'postal_code'       => $postal_code,
-                'umkm_id'           => $umkm_id
+                'user_id'           => $umkm_id
             ]);
 
             foreach($order_details as $order_detail){
