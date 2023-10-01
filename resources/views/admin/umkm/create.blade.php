@@ -68,7 +68,7 @@
                 <div class="form-group row">
                     <label for="contact" class="col-md-4 col-form-label text-md-right">{{ __('Telepon') }}</label>
                     <div class="col-md-6">
-                        <input id="contact" type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
+                        <input id="contact" type="number" class="form-control @error('contact') is-invalid @enderror" name="contact" value="62" required autocomplete="contact" autofocus>
                         @error('contact')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
