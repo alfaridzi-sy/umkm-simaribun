@@ -23,6 +23,8 @@ class CreateOrdersTable extends Migration
             $table->string('customer_phone');
             $table->string('shipping_address');
             $table->string('postal_code');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

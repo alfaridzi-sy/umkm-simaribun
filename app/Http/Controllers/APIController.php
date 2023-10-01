@@ -37,10 +37,12 @@ class APIController extends Controller
             }
 
             $data[] = [
+                'umkm_id' => $product->user->user_id,
                 'umkm_name' => $product->user->name,
                 'umkm_contact' => $product->user->contact,
                 'umkm_account_number' => $product->user->account_number,
                 'umkm_account_bank' => $product->user->account_bank,
+                'umkm_account_bank_nama' => $product->user->account_bank_name,
                 'product_id' => $product->product_id,
                 'product_name' => $product->product_name,
                 'product_description' => $product->description,
@@ -58,7 +60,6 @@ class APIController extends Controller
             'data' => $data,
         ]);
     }
-
 
     public function getProductDetail(Request $request){
         $product = Product::find($request->product_id);
@@ -187,6 +188,7 @@ class APIController extends Controller
             'customer_phone' => 'required|max:15',
             'shipping_address' => 'required',
             'postal_code' => 'required',
+            'umkm_id' => 'required',
             'order_details' => 'required'
         ]);
 
@@ -206,6 +208,7 @@ class APIController extends Controller
         $customer_phone     = $request->customer_phone;
         $shipping_address   = $request->shipping_address;
         $postal_code        = $request->postal_code;
+        $umkm_id            = $request->umkm_id;
 
         try{
             $order = Order::create([
@@ -215,7 +218,8 @@ class APIController extends Controller
                 'customer_name'     => $customer_name,
                 'customer_phone'    => $customer_phone,
                 'shipping_address'  => $shipping_address,
-                'postal_code'       => $postal_code
+                'postal_code'       => $postal_code,
+                'umkm_id'           => $umkm_id
             ]);
 
             foreach($order_details as $order_detail){

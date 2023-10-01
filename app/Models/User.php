@@ -28,6 +28,7 @@ class User extends Authenticatable
         'contact',
         'account_number',
         'account_bank',
+        'account_bank_name',
         'role_id'
     ];
 
