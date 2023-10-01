@@ -2,7 +2,8 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
             <a class="navbar-brand" href="javascript:void(0);">
-                <img src="{{ asset('customer/images/house_icon.png') }}" alt="" />
+                {{-- <img src="{{ asset('customer/images/pemko.png') }}" alt="" /> --}}
+                <img src="{{ asset('master/assets/img/pemko.png') }}" >
                 <span>
                     UMKM2M Siantar Marimbun
                 </span>

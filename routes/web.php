@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,9 @@ Route::middleware(['auth'])->group(function () {
 
     //Order
     Route::resource('order', OrderController::class);
+
+    //Report
+    Route::get('reportIndex', [ReportController::class, 'index'])->name('report.index');
 });
 
 //Customer

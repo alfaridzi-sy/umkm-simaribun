@@ -36,6 +36,7 @@
                     <th scope="col">Tanggal Pesanan</th>
                     <th scope="col">Alamat Pengiriman</th>
                     <th scope="col">Total Harga</th>
+                    <th scope="col">Nama UMKM</th>
                     <th scope="col">Status Pesanan</th>
                     <th scope="col">Aksi</th>
                 </tr>
@@ -49,6 +50,7 @@
                         <td scope="row">{{$od -> order_date}}</td>
                         <td scope="row">{{$od -> shipping_address}} - {{$od -> postal_code}}</td>
                         <td scope="row">{{$od -> price_amount}}</td>
+                        <td scope="row">{{$od -> user -> name}}</td>
                         <td scope="row">
                             <?php
                                 if ($od -> order_status == 1) {

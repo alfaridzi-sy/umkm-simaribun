@@ -15,7 +15,16 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::orderBy('order_status')->get();
+
+        $role = auth()->user()->role_id;
+        $user = auth()->user()->user_id;
+
+        if($role == 1){
+            $orders = Order::orderBy('order_status')->get();
+        }else if($role == 2){
+            $orders = Order::orderBy('order_status')->where('user_id', $user)->get();
+        }
+
         return view('admin.order.index', ["orders" => $orders]);
     }
 

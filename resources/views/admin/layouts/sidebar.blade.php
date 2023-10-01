@@ -5,8 +5,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a href="#" class="text-center">
-            <img src="{{ asset('master/assets/img/fav.png') }}" height="100px" >
+        <a href="javascript:void(0)" class="text-center">
+            <img src="{{ asset('master/assets/img/pemko.png') }}" height="100px" >
         </a>
 
         <!-- User -->
@@ -77,7 +77,7 @@
                     </a>
                 </li>
 
-                @if(auth()->user()->role_id != 2)
+
 
                 <div class="dropdown-divider"></div>
 
@@ -90,12 +90,10 @@
                 <div class="dropdown-divider"></div>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);">
+                    <a class="nav-link" href="/reportIndex">
                         <i class="fas fa-file-text text-dark"></i> Laporan Penjualan
                     </a>
                 </li>
-
-                @endif
             </ul>
         </div>
     </div>

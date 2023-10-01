@@ -94,7 +94,7 @@ UMKM | UMKM2M Kecamatan Siantar Marimbun
                 <div class="form-group row">
                     <label for="account_bank" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Bank') }}</label>
                     <div class="col-md-6">
-                        <select class="form-control" name="account_bank" id="account_bank">
+                        <select class="form-control" name="account_bank" id="account_bank" required>
                             <option value="" selected disabled hidden>Pilih Bank</option>
                             <option value="Bank Mandiri" <?php if($users -> account_bank == "Bank Mandiri" ) echo "selected"; ?> >Bank Mandiri</option>
                             <option value="Bank Rakyat Indonesia" <?php if($users -> account_bank == "Bank Rakyat Indonesia" ) echo "selected"; ?> >Bank Rakyat Indonesia</option>

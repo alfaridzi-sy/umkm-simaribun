@@ -37,7 +37,10 @@
                     <div class="card bg-secondary shadow border-0">
                         <div class="card-header bg-transparent pb-3">
                             <div class="text-muted text-center mt-2 mb-3">
-                                <h1 class="text-dark"><strong>Sign in</strong></h1>
+                                <a href="javascript:void(0)" class="text-center">
+                                    <img src="{{ asset('master/assets/img/pemko.png') }}" height="125px" >
+                                </a>
+                                <br><br>
                                 <p class="text-lead text-dark">
                                     Selamat Datang di Sistem UMKM2M <br>
                                     Kecamatan Siantar Marimbun
@@ -77,7 +80,7 @@
             <div class="container">
                 <div class="copyright text-center text-xl-center text-muted">
                     <p class="text-dark">
-                        Copyright © 2022 <a href="#" class="font-weight-bold ml-1 text-center text-danger">Made by Love</a>
+                        Copyright © 2023 <a href="#" class="font-weight-bold ml-1 text-center text-danger">Made by Love</a>
                     </p>
                 </div>
             </div>

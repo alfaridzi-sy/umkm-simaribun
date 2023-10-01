@@ -16,6 +16,7 @@
 @endsection
 
 @section('content')
+
     <div class="card shadow">
         <div class="card-header border-0">
             <div class="row align-items-center">
@@ -26,6 +27,11 @@
             </div>
         </div>
         <div class="card-body border-0">
+            @if(session('error'))
+                <div class="alert alert-danger mx-auto text-center">
+                    {{ session('error') }}
+                </div>
+            @endif
             <form action="{{route('user.store')}}" method="POST">
                 @csrf
 
@@ -92,7 +98,7 @@
                 <div class="form-group row">
                     <label for="account_bank" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Bank') }}</label>
                     <div class="col-md-6">
-                        <select class="form-control" name="account_bank" id="account_bank">
+                        <select class="form-control" name="account_bank" id="account_bank" required>
                             <option value="" selected disabled hidden>Pilih Bank</option>
                             <option value="Bank Mandiri">Bank Mandiri</option>
                             <option value="Bank Rakyat Indonesia">Bank Rakyat Indonesia</option>

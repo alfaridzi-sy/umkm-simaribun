@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+use function PHPUnit\Framework\isEmpty;
+
 class UserController extends Controller
 {
     /**
@@ -37,18 +39,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create([
-            'name'      => $request->name,
-            'username'  => $request->username,
-            'password'  => Hash::make('123'),
-            'address'   => $request->address,
-            'contact'   => $request->contact,
-            'account_number'   => $request->account_number,
-            'account_bank'   => $request->account_bank,
-            'role_id'   => 2
-        ]);
+        $username = User::where('username', $request->username)->first();
 
-        return redirect('user');
+        if(!$username){
+            User::create([
+                'name'      => $request->name,
+                'username'  => $request->username,
+                'password'  => Hash::make('123'),
+                'address'   => $request->address,
+                'contact'   => $request->contact,
+                'account_number'   => $request->account_number,
+                'account_bank'   => $request->account_bank,
+                'role_id'   => 2
+            ]);
+
+            return redirect('user');
+        }else{
+            return redirect()->back()->with('error', 'Username telah terdaftar.');
+        }
     }
 
     /**
