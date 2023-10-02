@@ -342,7 +342,7 @@ class APIController extends Controller
             $item_amount = OrderDetail::where('order_id', $order->order_id)->count();
 
             $order_detail   = OrderDetail::where('order_id', $order->order_id)->first();
-            $product_image  = ProductImage::where('product_id', $order_detail->product->product_id)->first();
+            $product_image  = ProductImage::where('product_id', $order_detail->product_id)->first();
 
             $data[] = [
                 'order_id'          => $order->order_id,
