@@ -328,8 +328,6 @@ class APIController extends Controller
             ], 200);
         }
 
-        $ordersFiltered = $ordersFiltered->whereIn('order_status', ['4', '5']);
-
         if($ordersFiltered->isEmpty()){
             return response()->json([
                 'status' => 'success',
@@ -338,7 +336,7 @@ class APIController extends Controller
             ], 200);
         }
 
-        $ordersFiltered = $ordersFiltered->sortByDesc('created_at');
+        $ordersFiltered = $ordersFiltered->sortBy('order_status');
 
         foreach($ordersFiltered as $order){
             $item_amount = OrderDetail::where('order_id', $order->order_id)->count();
