@@ -96,9 +96,9 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="account_bank" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Bank') }}</label>
+                    <label for="account_bank_name" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Bank') }}</label>
                     <div class="col-md-6">
-                        <select class="form-control" name="account_bank" id="account_bank" required>
+                        <select class="form-control" name="account_bank_name" id="account_bank_name" required>
                             <option value="" selected disabled hidden>Pilih Bank</option>
                             <option value="Bank Mandiri">Bank Mandiri</option>
                             <option value="Bank Rakyat Indonesia">Bank Rakyat Indonesia</option>
