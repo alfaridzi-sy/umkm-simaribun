@@ -49,7 +49,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'foto.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi foto
+            'foto.*' => 'image|mimes:jpeg,png,jpg,gif|max:10240', // Validasi foto
         ]);
 
         // dd($request->all());
