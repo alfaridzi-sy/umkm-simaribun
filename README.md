@@ -18,18 +18,18 @@ Sistem UMKM2M adalah platform yang memfasilitasi interaksi antara admin, UMKM (U
 
 ## Instalasi
 
-**Clone Repository**
+1. **Clone Repository**
     git clone https://github.com/alfaridzi-sy/umkm-simarimbun.git
 
-**Install Dependensi**
+2. **Install Dependensi**
     Pastikan Anda telah menginstal semua dependensi yang diperlukan. Jika Anda menggunakan composer:
     - cd umkm-simarimbun
     - composer install
 
-**Konfigurasi Database**
+3. **Konfigurasi Database**
     Konfigurasikan database sesuai dengan pengaturan sistem Anda. Edit file konfigurasi yang diperlukan.
 
-**Menjalankan Aplikasi**
+4. **Menjalankan Aplikasi**
     Setelah semua konfigurasi selesai, jalankan aplikasi dengan:
     - php artisan key:generate --ansi
     - php artisan migrate --seed 
@@ -37,20 +37,20 @@ Sistem UMKM2M adalah platform yang memfasilitasi interaksi antara admin, UMKM (U
 
 ## Penggunaan
 
-**Login Sebagai Admin**
+1. **Login Sebagai Admin**
 	- Akses halaman admin untuk mendaftarkan UMKM.
 	- Setelah pendaftaran, admin dapat mengelola data UMKM dan item.
-**Login sebagai UMKM**
+2. **Login sebagai UMKM**
 	- UMKM dapat login dan mulai menambahkan item mereka ke dalam sistem.
 	- Mereka dapat mengelola item yang terdaftar, termasuk mengubah harga dan deskripsi.
-**Login sebagai Pembeli**
+3. **Login sebagai Pembeli**
     - Pembeli dapat menelusuri item yang tersedia.
 	- Mereka dapat memilih item, menambahkan ke keranjang, dan melakukan pemesanan.
 
 ## Struktur Direktori
-	- /config - File konfigurasi
-	- /public - File statis, seperti gambar dan CSS
-	- /resources/views - Template tampilan
+	1. /config - File konfigurasi
+	2. /public - File statis, seperti gambar dan CSS
+	3. /resources/views - Template tampilan
 
 ## Kontribusi
 
