@@ -7,8 +7,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,12 +46,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/product/editImage/{product_id}','App\Http\Controllers\ProductController@editImage')->name('product.editImage');
     Route::get('/product/deleteImage/{product_image_id}','App\Http\Controllers\ProductController@deleteImage')->name('product.deleteImage');
     Route::post('/storeImage','App\Http\Controllers\ProductController@storeImage')->name('product.storeImage');
-
-    //Order
-    Route::resource('order', OrderController::class);
-
-    //Report
-    Route::get('reportIndex', [ReportController::class, 'index'])->name('report.index');
 });
 
 //Customer
@@ -62,12 +54,5 @@ Route::prefix('customer')->group(function () {
     Route::get('/productList', [FrontEndController::class, 'productList'])->name('customer.productList');
     Route::get('/contactList', [FrontEndController::class, 'contactList'])->name('customer.contactList');
     Route::get('/about', [FrontEndController::class, 'about'])->name('customer.about');
-    // Route::get('/{id}', [CustomerTypeController::class, 'detail']);
-    // Route::post('/add', [CustomerTypeController::class, 'add']);
-    // Route::put('/{id}', [CustomerTypeController::class, 'update']);
-    // Route::delete('/{id}', [CustomerTypeController::class, 'delete']);
-    // Route::get('/home', function () {
-    //     return view('customer.index');
-    // });
 });
 

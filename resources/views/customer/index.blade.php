@@ -34,7 +34,7 @@
                                     pemberdayaan masyarakat UMKM untuk meningkatkan ekonomi di Kecamatan Siantar Marimbun.
                                 </p>
                                 <div class="d-flex">
-                                    <a href="" class="text-uppercase custom_orange-btn mr-3">
+                                    <a href="javascript:void(0)" class="text-uppercase custom_orange-btn mr-3">
                                     Beli Sekarang
                                     </a>
                                     <a href="{{ route('customer.contactList') }}" class="text-uppercase custom_dark-btn">
@@ -77,7 +77,7 @@
                                         pemberdayaan masyarakat UMKM untuk meningkatkan ekonomi di Kecamatan Siantar Marimbun.
                                     </p>
                                     <div class="d-flex">
-                                        <a href="" class="text-uppercase custom_orange-btn mr-3">
+                                        <a href="javascript:void(0)" class="text-uppercase custom_orange-btn mr-3">
                                         Beli Sekarang
                                         </a>
                                         <a href="{{ route('customer.contactList') }}" class="text-uppercase custom_dark-btn">
@@ -194,7 +194,7 @@
                             {!! nl2br(e($product->description)) !!}
                         </div>
                         <div>
-                            <a href="#" class="custom_dark-btn">
+                            <a href="javascript:void(0)" class="custom_dark-btn">
                                 Beli Sekarang
                             </a>
                         </div>

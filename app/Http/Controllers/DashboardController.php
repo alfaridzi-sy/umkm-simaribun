@@ -16,7 +16,6 @@ class DashboardController extends Controller
     public function index(){
         $user       = User::where('role_id', 2)->count();
         $product    = Product::count();
-        $order      = Order::count();
-        return view('admin.index', ["users" => $user, "products" => $product, "orders" => $order]);
+        return view('admin.index', ["users" => $user, "products" => $product]);
     }
 }

@@ -9,7 +9,7 @@ use App\Models\Category;
 class FrontEndController extends Controller
 {
     public function index(){
-        $products = Product::limit(3)->get();
+        $products = Product::orderBy('created_at', 'desc')->limit(3)->get();
         $categories = Category::all();
         return view('customer.index', ["products" => $products, "categories" => $categories]);
     }

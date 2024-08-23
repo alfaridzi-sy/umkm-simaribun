@@ -76,24 +76,6 @@
                         <i class="fas fa-list-alt text-success"></i> Data Produk
                     </a>
                 </li>
-
-
-
-                <div class="dropdown-divider"></div>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/order">
-                        <i class="fas fa-shopping-bag text-info"></i> Data Pesanan
-                    </a>
-                </li>
-
-                <div class="dropdown-divider"></div>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/reportIndex">
-                        <i class="fas fa-file-text text-dark"></i> Laporan Penjualan
-                    </a>
-                </li>
             </ul>
         </div>
     </div>

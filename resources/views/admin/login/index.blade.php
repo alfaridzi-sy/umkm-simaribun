@@ -80,7 +80,7 @@
             <div class="container">
                 <div class="copyright text-center text-xl-center text-muted">
                     <p class="text-dark">
-                        Copyright © 2023 <a href="#" class="font-weight-bold ml-1 text-center text-danger">Made by Love</a>
+                        Copyright © 2024 <a href="javascript:void(0)" class="font-weight-bold ml-1 text-center text-danger">Made by Love</a>
                     </p>
                 </div>
             </div>
