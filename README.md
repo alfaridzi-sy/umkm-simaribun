@@ -4,15 +4,15 @@ Sistem UMKM2M adalah platform yang memfasilitasi interaksi antara admin, UMKM (U
 
 ## Fitur Utama
 
-**Pendaftaran Akun UMKM**
+1. **Pendaftaran Akun UMKM**
     - Admin dapat mendaftarkan akun UMKM baru.
     - Setiap UMKM akan memiliki akses untuk mengelola data item yang dijual.
 
-**Manajemen Item**
+2. **Manajemen Item**
     - UMKM dapat menambahkan, mengedit, dan menghapus item yang ingin dijual.
     - Item dapat mencakup nama, deskripsi, harga, dan gambar.
 
-**Pemilihan dan Pemesanan Item**
+3. **Pemilihan dan Pemesanan Item**
     - Pembeli dapat melihat daftar item yang tersedia.
     - Pembeli dapat memilih item yang diinginkan dan melakukan pemesanan.
 
